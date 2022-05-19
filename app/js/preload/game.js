@@ -1,4 +1,5 @@
 require('v8-compile-cache');
+
 const { ipcRenderer } = require('electron');
 const store = require('electron-store');
 const log = require('electron-log');
@@ -100,24 +101,11 @@ const injectAltManager = () => {
         const logoutBtnEl = document.getElementById('logoutBtn');
         const linkCmdBtnTxtEl = document.getElementById('linkCmdBtnTxt');
         const signedInHeaderBarEl = document.getElementById('signedInHeaderBar');
-        if (signedInHeaderBarEl.style.display !== 'none') {
-            logoutBtnEl.style.display = 'block';
-        }
-        else {
-            logoutBtnEl.style.display = 'none';
-        }
-        if (config.get('enableLinkCmd', false)) {
-            linkCmdBtnTxtEl.innerText = 'link';
-        }
-        else {
-            linkCmdBtnTxtEl.innerText = 'link_off';
-        }
-        try {
-            document.getElementById('mouseAccel_div').style.display = 'block';
-        }
-        catch {
-            // DO NOTHING
-        }
+		
+		(signedInHeaderBarEl.style.display !== "none") ? logoutBtnEl.style.display = "block" : logoutBtnEl.style.display = "none";
+		(config.get("enableLinkCmd", false)) linkCmdBtnTxtEl.innerText = "link" ? : linkCmdBtnTxtEl.innerText = "link_off";
+		
+		try { document.getElementById("mouseAccel_div").style.display = "block" } catch {}
     }, 250);
 };
 
