@@ -1,7 +1,4 @@
-# folders
 node_modules/
 dist/
 app/test/
-
-#files
 package-lock.json
